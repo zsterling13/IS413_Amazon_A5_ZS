@@ -158,6 +158,7 @@ namespace IS413_Amazon_A5_ZS.Models
                     }
                 );
 
+                //Save changes
                 context.SaveChanges();
             }
         }

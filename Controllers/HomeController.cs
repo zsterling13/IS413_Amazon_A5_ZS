@@ -13,6 +13,7 @@ namespace IS413_Amazon_A5_ZS.Controllers
     {
         private readonly ILogger<HomeController> _logger;
 
+        //Create a private repository from IBookRepository
         private IBookRepository _repository;
 
         public HomeController(ILogger<HomeController> logger, IBookRepository repository)

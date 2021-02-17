@@ -8,6 +8,7 @@ namespace IS413_Amazon_A5_ZS.Models
 {
     public class BookDBContext : DbContext
     {
+        //Constructor for the class
         public BookDBContext (DbContextOptions<BookDBContext> options) : base (options)
         {
             

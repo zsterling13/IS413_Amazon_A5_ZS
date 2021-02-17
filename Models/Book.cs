@@ -8,7 +8,7 @@ namespace IS413_Amazon_A5_ZS.Models
 {
     public class Book
     {
-        [Key]
+        [Key, Required]
         public int BookId { get; set; }
 
         [Required]
