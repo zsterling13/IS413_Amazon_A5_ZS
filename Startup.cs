@@ -35,6 +35,7 @@ namespace IS413_Amazon_A5_ZS
                {
                    string path = Directory.GetCurrentDirectory();
 
+                   //Outputs database to the project's path location by replacing [DirectoryHere] in the appsettings.json with the project's path location
                    options.UseSqlServer(Configuration["ConnectionStrings:BookInfoConnection"].Replace("[DirectoryHere]",path));
                });
 

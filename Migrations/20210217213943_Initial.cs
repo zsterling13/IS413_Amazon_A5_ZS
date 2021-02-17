@@ -12,11 +12,14 @@ namespace IS413_Amazon_A5_ZS.Migrations
                 {
                     BookId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Title = table.Column<string>(nullable: true),
-                    Author = table.Column<string>(nullable: true),
-                    Publisher = table.Column<string>(nullable: true),
-                    ISBN = table.Column<string>(nullable: true),
-                    Category = table.Column<string>(nullable: true),
+                    Title = table.Column<string>(nullable: false),
+                    Author_First_Name = table.Column<string>(nullable: false),
+                    Author_Middle_In = table.Column<string>(nullable: true),
+                    Author_Last_Name = table.Column<string>(nullable: false),
+                    Publisher = table.Column<string>(nullable: false),
+                    ISBN = table.Column<string>(nullable: false),
+                    Category = table.Column<string>(nullable: false),
+                    Classification = table.Column<string>(nullable: false),
                     Price = table.Column<double>(nullable: false)
                 },
                 constraints: table =>

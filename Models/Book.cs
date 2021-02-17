@@ -15,16 +15,24 @@ namespace IS413_Amazon_A5_ZS.Models
         public string Title { get; set; }
 
         [Required]
-        public string Author { get; set; }
+        public string Author_First_Name { get; set; }
+
+        public string Author_Middle_In { get; set; } = "";
+
+        [Required]
+        public string Author_Last_Name { get; set; }
 
         [Required]
         public string Publisher { get; set; }
 
-        [Required, RegularExpression("[7,9,8]{3}-[0-9]{10}")]
+        [Required, RegularExpression("[0-9]{3}-[0-9]{10}")]
         public string ISBN { get; set; }
 
         [Required]
         public string Category { get; set; }
+
+        [Required]
+        public string Classification { get; set; }
 
         [Required]
         public double Price { get; set; }
