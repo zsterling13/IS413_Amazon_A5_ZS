@@ -2,16 +2,18 @@
     ViewData["Title"] = "Buy Books!";
 }
 
-@model IQueryable<Book>
+@model BookListViewModel
 
+<!--Title Text for Page-->
 <div class="text-center">
     <h1 class="display-4">Buy Books!</h1>
+    <h3 class="modal-title text-dark bg-info font-weight-bold">Here is our entire collection!</h3>
 </div>
 
 <!--Table for all books to be listed-->
 <div class="text-center">
     <div class="text-center">
-        <table class="center table table-striped table-bordered table-hover table-light">
+        <table class="center table table-striped table-bordered table-hover table-info">
             <thead>
                 <tr>
                     <th>Book ID</th>
@@ -24,12 +26,13 @@
                     <th>Classification</th>
                     <th>Category</th>
                     <th>Price</th>
+                    <th>Page Count</th>
                 </tr>
             </thead>
 
             <tbody>
                 <!--Loops through all of the submitted restaurants to print them out here-->
-                @foreach (var x in Model)
+                @foreach (var x in Model.Books)
                 {
                 <tr id="highlight">
                     <td>@x.BookId </td>
@@ -42,9 +45,17 @@
                     <td>@x.Classification</td>
                     <td>@x.Category</td>
                     <td>$@x.Price</td>
+                    <td>@x.Page_Num</td>
                 </tr>
                 }
             </tbody>
         </table>
     </div>
+</div>
+
+<!--page navigation numbers, with added styling features-->
+<div page-model="@Model.PagingInfo" page-action="Index" page-classes-enabled="true" page-class="btn" 
+     page-class-normal="btn-outline-dark"
+     page-class-selected="btn-dark"
+     class="text-center bg-info">
 </div>

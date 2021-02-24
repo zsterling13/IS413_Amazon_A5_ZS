@@ -34,7 +34,8 @@ namespace IS413_Amazon_A5_ZS.Models
                         ISBN = "978-0451419439",
                         Classification  = "Fiction",
                         Category = "Classic",
-                        Price = 9.95
+                        Price = 9.95,
+                        Page_Num = 1488
                     },
 
                     new Book
@@ -48,7 +49,8 @@ namespace IS413_Amazon_A5_ZS.Models
                         ISBN = "978-0743270755",
                         Classification = "Non-Fiction",
                         Category = "Biography",
-                        Price = 14.58
+                        Price = 14.58,
+                        Page_Num = 944
                     },
 
                     new Book
@@ -61,7 +63,8 @@ namespace IS413_Amazon_A5_ZS.Models
                         ISBN = "978-0553384611",
                         Classification = "Non-Fiction",
                         Category = "Biography",
-                        Price = 21.54
+                        Price = 21.54,
+                        Page_Num = 832
                     },
 
                     new Book
@@ -75,7 +78,8 @@ namespace IS413_Amazon_A5_ZS.Models
                         ISBN = "978-0812981254",
                         Classification = "Non-Fiction",
                         Category = "Biography",
-                        Price = 11.61
+                        Price = 11.61,
+                        Page_Num = 864
                     },
 
 
@@ -90,6 +94,7 @@ namespace IS413_Amazon_A5_ZS.Models
                         Classification = "Non-Fiction",
                         Category = "Historical",
                         Price = 13.33,
+                        Page_Num = 528
                     },
 
                     new Book
@@ -102,7 +107,8 @@ namespace IS413_Amazon_A5_ZS.Models
                         ISBN = "978-0804171281",
                         Classification = "Fiction",
                         Category = "Historical Fiction",
-                        Price = 15.95
+                        Price = 15.95,
+                        Page_Num = 288
                     },
 
                     new Book
@@ -115,7 +121,8 @@ namespace IS413_Amazon_A5_ZS.Models
                         ISBN = "978-1455586691",
                         Classification = "Non-Fiction",
                         Category = "Self-Help",
-                        Price = 14.99
+                        Price = 14.99,
+                        Page_Num = 304
                     },
 
                     new Book
@@ -128,7 +135,8 @@ namespace IS413_Amazon_A5_ZS.Models
                         ISBN = "978-1455523023",
                         Classification = "Non-Fiction",
                         Category = "Self-Help",
-                        Price = 21.66
+                        Price = 21.66,
+                        Page_Num = 240
                     },
 
                     new Book
@@ -141,7 +149,8 @@ namespace IS413_Amazon_A5_ZS.Models
                         ISBN = "978-1591847984",
                         Classification = "Non-Fiction",
                         Category = "Business",
-                        Price = 29.16
+                        Price = 29.16,
+                        Page_Num = 400
                     },
                     
                     new Book
@@ -154,7 +163,51 @@ namespace IS413_Amazon_A5_ZS.Models
                         ISBN = "978-0553393613",
                         Classification = "Fiction",
                         Category = "Thrillers",
-                        Price = 15.03
+                        Price = 15.03,
+                        Page_Num = 642
+                    },
+
+                    new Book
+                    {
+                        //BookId = 11,
+                        Title = "The Name of the Wind",
+                        Author_First_Name = "Patrick",
+                        Author_Last_Name = "Rothfuss",
+                        Publisher = "Penguin Books",
+                        ISBN = "978-0583493633",
+                        Classification = "Fiction",
+                        Category = "Fantasy",
+                        Price = 35.99,
+                        Page_Num = 488
+                    },
+
+                    new Book
+                    {
+                        //BookId = 12,
+                        Title = "The Great Gatsby",
+                        Author_First_Name = "F",
+                        Author_Middle_In = "S",
+                        Author_Last_Name = "Fitzgerald",
+                        Publisher = "Squire & Co.",
+                        ISBN = "978-0533933660",
+                        Classification = "Fiction",
+                        Category = "Drama",
+                        Price = 13.99,
+                        Page_Num = 153
+                    },
+
+                    new Book
+                    {
+                        //BookId = 13,
+                        Title = "Brave New World",
+                        Author_First_Name = "Aldous",
+                        Author_Last_Name = "Huxley",
+                        Publisher = "Chatto and Windus",
+                        ISBN = "978-0559334113",
+                        Classification = "Fiction",
+                        Category = "Dystopia",
+                        Price = 5.99,
+                        Page_Num = 121
                     }
                 );
 

@@ -13,7 +13,7 @@ namespace IS413_Amazon_A5_ZS.Models
         {
             
         }
-
+        //DbSet of Book objects
         public DbSet<Book> Books { get; set; }
     }
 }

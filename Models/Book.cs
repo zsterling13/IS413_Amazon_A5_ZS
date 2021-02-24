@@ -17,6 +17,7 @@ namespace IS413_Amazon_A5_ZS.Models
         [Required]
         public string Author_First_Name { get; set; }
 
+        //Not required, but set to a default empty string to avoid being broken from null values
         public string Author_Middle_In { get; set; } = "";
 
         [Required]
@@ -25,6 +26,7 @@ namespace IS413_Amazon_A5_ZS.Models
         [Required]
         public string Publisher { get; set; }
 
+        //ISBN should be in a ###-########## format
         [Required, RegularExpression("[0-9]{3}-[0-9]{10}")]
         public string ISBN { get; set; }
 
@@ -36,6 +38,10 @@ namespace IS413_Amazon_A5_ZS.Models
 
         [Required]
         public double Price { get; set; }
+
+        //Determines what page the book will be listed on
+        [Required]
+        public int Page_Num { get; set; }
 
     }
 }

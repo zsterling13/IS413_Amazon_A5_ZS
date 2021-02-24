@@ -64,11 +64,16 @@ namespace IS413_Amazon_A5_ZS
 
             app.UseAuthorization();
 
+            //Customize the displayed URL to be URL/P1, URL/P2, etc.
             app.UseEndpoints(endpoints =>
             {
+
                 endpoints.MapControllerRoute(
-                    name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    "pagination", 
+                    "/P{page}",
+                    new { Controller = "Home", action = "Index" });
+
+                endpoints.MapDefaultControllerRoute();
             });
 
             //Makes sure that database is populated
