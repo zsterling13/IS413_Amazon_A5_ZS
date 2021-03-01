@@ -3,6 +3,9 @@
 Zachary Sterling
 IS 413 Section 3 Group 4
 Description: Webpage that displays dynamic book information from a database in the form of a stylized table.
+
+    Additional styling from bootstrap: in the table tag: table-striped table-bordered table-hover table-light.
+        In the navigation buttons: bg-info btn-dark.
 -->
 <html lang="en">
 <head>
@@ -14,9 +17,10 @@ Description: Webpage that displays dynamic book information from a database in t
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <!--Changed a few settings, like background color to dark and text to white-->
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-dark border-bottom box-shadow mb-3">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Buy Books Inc.</a>
+                <a class="navbar-brand ml-2 text-white" asp-area="" asp-controller="Home" asp-action="Index">Buy Books Inc.</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -24,14 +28,16 @@ Description: Webpage that displays dynamic book information from a database in t
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
-    <div class="container">
+
+    <!--Added col-12 class to make table full length-->
+    <div class="container col-12">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>

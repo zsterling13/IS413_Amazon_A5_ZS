@@ -16,6 +16,7 @@ namespace IS413_Amazon_A5_ZS.Models
             _context = context;
         }
 
+        //Queriable object that returns book objects
         public IQueryable<Book> Books => _context.Books;
     }
 }
