@@ -26,13 +26,14 @@ namespace IS413_Amazon_A5_ZS.Controllers
             _repository = repository;
         }
 
-        //Return the index/home page that queries the appropriate number of books
-        public IActionResult Index(int page = 1)
+        //Return the index/home page that queries the appropriate number of books as well as allows filters
+        public IActionResult Index(string category, int page = 1)
         {
             return View(new BookListViewModel
                 //Query to get the correct book information for each page
                 {
                     Books = _repository.Books
+                .Where(p => category == null || p.Category == category)
                 .OrderBy(p => p.BookId)
                 .Skip((page - 1) * ItemsPerPage)
                 .Take(ItemsPerPage)
@@ -42,8 +43,12 @@ namespace IS413_Amazon_A5_ZS.Controllers
                     {  
                         CurrentPage = page,
                         ItemsPerPage = ItemsPerPage,
-                        TotalNumItems = _repository.Books.Count()
-                    }
+
+                        //If statement to determine the correct number of page options that is displayed under the table
+                        TotalNumItems = category == null ? _repository.Books.Count() :
+                            _repository.Books.Where(x => x.Category == category).Count()
+                    },
+                CurrentCategory = category
                 }
             );
         }

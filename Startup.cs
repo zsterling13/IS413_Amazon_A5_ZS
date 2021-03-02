@@ -67,7 +67,25 @@ namespace IS413_Amazon_A5_ZS
             //Customize the displayed URL to be URL/P1, URL/P2, etc.
             app.UseEndpoints(endpoints =>
             {
+                //Allow people to navigate to different pages of books that are filtered based on categories
+                endpoints.MapControllerRoute("catpage",
+                    "{category}/{page:int}",
+                    new { Controller = "Home", action = "Index" }
+                    );
 
+                //Allow quick navigation to different pages by only entering the page number as a parameter in the URL
+                endpoints.MapControllerRoute("page",
+                    "{page:int}",
+                    new { Controller = "Home", action = "Index" }
+                    );
+
+                //Allow user to type in the desired category in the URL and filter the results
+                endpoints.MapControllerRoute("category",
+                    "{category}",
+                    new { Controller = "Home", action = "Index", page = 1 }
+                    );
+
+                //Allow user to type in the desired page as P1 for page 1, P2 for page 2, etc.
                 endpoints.MapControllerRoute(
                     "pagination", 
                     "/P{page}",

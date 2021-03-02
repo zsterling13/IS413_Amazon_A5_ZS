@@ -39,6 +39,10 @@ namespace IS413_Amazon_A5_ZS.Infrastructure
 
         public string PageClass { get; set; }
 
+        //Create a dictionary of objects that creates dynamic page url's
+        [HtmlAttributeName(DictionaryAttributePrefix = "page-url-")]
+        public Dictionary<string, object> PageUrlValues { get; set; } = new Dictionary<string, object>();
+
         public string PageClassNormal { get; set; }
 
         public string PageClassSelected { get; set; }
@@ -55,7 +59,10 @@ namespace IS413_Amazon_A5_ZS.Infrastructure
             for (int i = 1; i <= PageModel.TotalPages; i++)
             {
                 TagBuilder tag = new TagBuilder("a");
-                tag.Attributes["href"] = urlHelper.Action(PageAction, new { page = i });
+
+                PageUrlValues["page"] = i;
+
+                tag.Attributes["href"] = urlHelper.Action(PageAction, PageUrlValues);
                 tag.InnerHtml.Append(i.ToString());
 
                 //If statement to allow for bootstrap and CSS to affect the dynamically-created links

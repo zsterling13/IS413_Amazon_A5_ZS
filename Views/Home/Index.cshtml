@@ -5,13 +5,21 @@
 @model BookListViewModel
 
 <!--Title Text for Page-->
-<div class="text-center">
+<div class="text-center col-12">
     <h1 class="display-4">Buy Books!</h1>
-    <h3 class="modal-title text-dark bg-info font-weight-bold">Here is our entire collection!</h3>
+    <h3 class="modal-title text-dark bg-info font-weight-bold">Filter By Category Below</h3>
 </div>
 
+<br />
+<!--Import information for the category filter options-->
+<div class="col-12 text-center">
+    <vc:navigation-menu />
+</div>
+
+<br />
+ 
 <!--Table for all books to be listed-->
-<div class="text-center">
+<div class="text-center col-12">
     <div class="text-center">
         <table class="center table table-striped table-bordered table-hover table-info">
             <thead>
@@ -32,21 +40,10 @@
 
             <tbody>
                 <!--Loops through all of the submitted restaurants to print them out here-->
+                <!--Information to loop through is located in a seperate .cshtml file called BookSummary.cshtml, which is imported into here-->
                 @foreach (var x in Model.Books)
                 {
-                <tr id="highlight">
-                    <td>@x.BookId </td>
-                    <td>@x.Title</td>
-                    <td>@x.Author_First_Name</td>
-                    <td>@x.Author_Middle_In</td>
-                    <td>@x.Author_Last_Name</td>
-                    <td>@x.Publisher</td>
-                    <td>@x.ISBN</td>
-                    <td>@x.Classification</td>
-                    <td>@x.Category</td>
-                    <td>$@x.Price</td>
-                    <td>@x.Page_Num</td>
-                </tr>
+                    <partial name="BookSummary" model="x" />
                 }
             </tbody>
         </table>
@@ -57,5 +54,6 @@
 <div page-model="@Model.PagingInfo" page-action="Index" page-classes-enabled="true" page-class="btn" 
      page-class-normal="btn-outline-dark"
      page-class-selected="btn-dark"
+     page-url-category="@Model.CurrentCategory"
      class="text-center bg-info">
 </div>

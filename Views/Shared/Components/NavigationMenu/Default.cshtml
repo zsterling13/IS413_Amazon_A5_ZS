@@ -1,0 +1,29 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@model IEnumerable<string>
+
+<!--Creates an a-tag for the reset button that clears all currently selected filters from the page
+    Also displays the entire book collection since the category value is set to null
+    -->
+<a class="btn d-inline btn-outline-secondary col-1 font-weight-bold" asp-action="Index" asp-controller="Home"
+    asp-route-category="" style="margin:1%">
+    Reset
+</a>
+
+
+<!--Loops through every category possibility in the database and creates an a-tag filter option for them
+    If the a-tag is being used for the currently selected filter then it remains highlighted until another option is chosen
+    -->
+@foreach(string category in Model)
+{
+    <a class="btn d-inline btn-outline-secondary col-1 @(category == ViewBag.SelectedCategory ? "btn-primary" : "btn-outline-secondary")" 
+       asp-action="Index" asp-controller="Home"
+       asp-route-category="@category"
+       asp-route-page="1" style="margin:1%">
+        @category
+    </a>
+}

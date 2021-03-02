@@ -13,6 +13,7 @@ namespace IS413_Amazon_A5_ZS.Models.ViewModels
         //Information on paging object
         public PagingInfo PagingInfo { get; set; }
 
-        
+        //Keeps track of what category is currently being used to filter
+        public string CurrentCategory { get; set; }
     }
 }
