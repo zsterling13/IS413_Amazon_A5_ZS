@@ -6,37 +6,31 @@
 <!--This is the shared layout page for the Pages/Shared folder-->
 <!DOCTYPE html>
 <html>
-<head>
-    <meta name="viewport" content="width=content-width" />
-    <title>Book Cart</title>
-    <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
-    <link href="/lib/font-awesome/css/all.min.css" rel="stylesheet" />
-</head>
+    <head>
+        <meta name="viewport" content="width=content-width" />
+        <title>Book Cart</title>
+        <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+        <link href="/lib/font-awesome/css/all.min.css" rel="stylesheet" />
+    </head>
 
-<body>
-    <!--Code that puts the little cart icon and info in the top right corner-->
-    <div class="bg-dark text-white p-2">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col navbar-brand">Buy Books Inc.</div>
-                <div class="col-6 text-right">
-                    <vc:cart-summary />
+    <body>
+        <!--Code that puts the little cart icon and info in the top right corner-->
+        <div class="bg-dark text-white p-2">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col navbar-brand">Buy Books Inc.</div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <!--Code that puts the page's title in the top left of the page-->
-    <div class="bg-dark text-white p-2">
-        <span class="navbar-brand ml-2">
-            Book Cart
-        </span>
-    </div>
-    <div class="m-1 p-1">
-        @RenderBody()
-    </div>
-
-
-</body>
-
+        <!--Code that puts the page's title in the top left of the page-->
+        <div class="bg-dark text-white p-2">
+            <span class="navbar-brand ml-2">
+                Book Cart
+            </span>
+        </div>
+        <div class="m-1 p-1">
+            @RenderBody()
+        </div>
+    </body>
 </html>

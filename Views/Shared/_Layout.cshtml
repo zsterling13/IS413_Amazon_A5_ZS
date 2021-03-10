@@ -23,30 +23,15 @@ Description: Webpage that displays dynamic book information from a database in t
             <div class="container-fluid">
                 <div class="row">
                     <div class="col navbar-brand">Buy Books Inc.</div>
+                    <div class="col navbar-brand">
+                        <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                    </div>
                     <div class="col-6 text-right">
                         <vc:cart-summary />
                     </div>
                 </div>
             </div>
         </div>
-        <!--Changed a few settings, like background color to dark and text to white-->
-        <!--<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-dark border-bottom box-shadow mb-3">
-        <div class="container">
-            <a class="navbar-brand ml-2 text-white" asp-area="" asp-controller="Home" asp-action="Index">Buy Books Inc.</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                <ul class="navbar-nav flex-grow-1">
-                    <li class="nav-item">
-                        <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>-->
-
     </header>
 
     <!--Added col-12 class to make table full length-->
