@@ -46,6 +46,7 @@ namespace IS413_Amazon_A5_ZS.Pages
             return RedirectToPage(new { returnUrl = returnUrl });
         }
 
+        //Method that helps remove items from the user's cart
         public IActionResult OnPostRemove(long bookID, string returnUrl)
         {
             Cart.RemoveLine(Cart.Lines.First(cl =>

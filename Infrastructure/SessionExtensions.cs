@@ -12,6 +12,7 @@ namespace IS413_Amazon_A5_ZS.Infrastructure
     {
         public static void SetJson (this ISession session, string key, object value)
         {
+            //Communicates with the current session and its stored information
             session.SetString(key, JsonSerializer.Serialize(value));
         }
 
@@ -19,6 +20,7 @@ namespace IS413_Amazon_A5_ZS.Infrastructure
         {
             var sessionData = session.GetString(key);
 
+            //If sessionData is null then return default(T), else deserialize with the sessionData
             return sessionData == null ? default(T) : JsonSerializer.Deserialize<T>(sessionData);
         }
     }

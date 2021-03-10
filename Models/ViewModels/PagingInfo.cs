@@ -14,7 +14,8 @@ namespace IS413_Amazon_A5_ZS.Models.ViewModels
 
         public int CurrentPage { get; set; }
 
-        //Create a TotalPages variable that receives a rounded value of the total number of items available divided by the items per page value
+        //Create a TotalPages variable that receives a rounded value of the total number of items available divided by the 
+        //items per page value
         public int TotalPages => (int)(Math.Ceiling((decimal) TotalNumItems / ItemsPerPage));
 
 

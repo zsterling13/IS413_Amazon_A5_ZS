@@ -21,6 +21,7 @@
     <td>@Model.Category</td>
     <td>$@Model.Price</td>
     <td>@Model.Page_Num</td>
+    <!--Code that displays the buy button that adds an item to the user's current cart session-->
     <td>
         <form id="@Model.BookId" asp-page="/BookPurchase" method="post">
             <input type="hidden" asp-for="BookId" />

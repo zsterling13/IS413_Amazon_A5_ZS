@@ -10,8 +10,6 @@ namespace IS413_Amazon_A5_ZS.Models
         //Create new list object that stores cart lines
         public List<CartLine> Lines { get; set; } = new List<CartLine>();
 
-
-
         //Method that adds a book item to the list object Lines
         public virtual void AddItem (Book leBook, int quant)
         {
@@ -39,7 +37,7 @@ namespace IS413_Amazon_A5_ZS.Models
         //Method that clears all books in the cart
         public virtual void Clear() => Lines.Clear();
 
-        //Hard-coded price here
+        //Dynamically compute the total price by referencing the correct values stored in the model
         public decimal ComputeTotalSum() => Lines.Sum(e => (decimal)e.Book.Price * e.Quantity);
 
         public class CartLine

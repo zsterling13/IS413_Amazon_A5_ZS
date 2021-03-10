@@ -51,6 +51,8 @@ namespace IS413_Amazon_A5_ZS
             services.AddDistributedMemoryCache();
             services.AddSession();
 
+            //Adds a service that helps the program recognize a session for the user's cart, making the cart dynamically change
+            //throughout the user's session
             services.AddScoped<Cart>(sp => SessionCart.GetCart(sp));
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
@@ -69,14 +71,14 @@ namespace IS413_Amazon_A5_ZS
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+
+            //Allow for additional funcitonality in the program for static files and HTTPS Redirection
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
             //Build for session
             app.UseSession();
-
             app.UseRouting();
-
             app.UseAuthorization();
 
             //Customize the displayed URL to be URL/P1, URL/P2, etc.
@@ -106,8 +108,9 @@ namespace IS413_Amazon_A5_ZS
                     "/P{pageNum}",
                     new { Controller = "Home", action = "Index" });
 
-                endpoints.MapDefaultControllerRoute();
 
+                //Add functionality that allows for the program to use Razor Pages
+                endpoints.MapDefaultControllerRoute();
                 endpoints.MapRazorPages();
             });
 

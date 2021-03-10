@@ -6,6 +6,7 @@
 
 @model Cart
 <div class="">
+    <!--If the Cart is empty not empty then display information about the cart's number of items and current grand total-->
     @if (Model.Lines.Count() > 0)
     {
         <small class="navbar-text">
@@ -14,6 +15,7 @@
             @Model.ComputeTotalSum().ToString("c")
         </small>
     }
+    <!--a tag that displays the little shopping cart icon that links to the page that displays the cart's contents-->
     <a class="btn btn-sm btn-secondary navbar-btn" asp-page="/BookPurchase"
        asp-route-returnurl="@ViewContext.HttpContext.Request.PathAndQuery()">
         <i class="fa fa-shopping-cart"></i>

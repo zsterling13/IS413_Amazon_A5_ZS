@@ -20,6 +20,7 @@ namespace IS413_Amazon_A5_ZS.Controllers
         //Determines how many book items are displayed per page
         public int ItemsPerPage = 5;
 
+        //Constructor for the HomeController, that mainly sets a few private variables with parameters
         public HomeController(ILogger<HomeController> logger, IBookRepository repository)
         {
             _logger = logger;
