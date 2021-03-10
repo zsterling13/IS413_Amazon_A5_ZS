@@ -23,7 +23,7 @@
     <a class="btn d-inline btn-outline-secondary col-1 @(category == ViewBag.SelectedCategory ? "btn-primary" : "btn-outline-secondary")" 
        asp-action="Index" asp-controller="Home"
        asp-route-category="@category"
-       asp-route-page="1" style="margin:1%">
+       asp-route-pageNum="1" style="margin:1%">
         @category
     </a>
 }

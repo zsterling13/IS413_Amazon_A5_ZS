@@ -60,7 +60,7 @@ namespace IS413_Amazon_A5_ZS.Infrastructure
             {
                 TagBuilder tag = new TagBuilder("a");
 
-                PageUrlValues["page"] = i;
+                PageUrlValues["pageNum"] = i;
 
                 tag.Attributes["href"] = urlHelper.Action(PageAction, PageUrlValues);
                 tag.InnerHtml.Append(i.ToString());

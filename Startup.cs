@@ -1,6 +1,7 @@
 using IS413_Amazon_A5_ZS.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -33,15 +34,26 @@ namespace IS413_Amazon_A5_ZS
             //Also creates a dynamic database file path by putting in the project's current file directory path into the connection string
             services.AddDbContext<BookDBContext>(options =>
                {
-                   string path = Directory.GetCurrentDirectory();
+                   //string path = Directory.GetCurrentDirectory();
 
                    //Outputs database to the project's path location by replacing [DirectoryHere] in the appsettings.json with the project's path location
-                   options.UseSqlServer(Configuration["ConnectionStrings:BookInfoConnection"].Replace("[DirectoryHere]",path));
+                   //options.UseSqlServer(Configuration["ConnectionStrings:BookInfoConnection"].Replace("[DirectoryHere]",path));
+                   options.UseSqlite(Configuration["ConnectionStrings:BookInfoConnection"]);
+
                });
 
             services.AddScoped<IBookRepository, EFBookRepository>();
 
-            
+            //Add Razor Page funcitonality
+            services.AddRazorPages();
+
+            //Add functionality for a saved cart session
+            services.AddDistributedMemoryCache();
+            services.AddSession();
+
+            services.AddScoped<Cart>(sp => SessionCart.GetCart(sp));
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -60,6 +72,9 @@ namespace IS413_Amazon_A5_ZS
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
+            //Build for session
+            app.UseSession();
+
             app.UseRouting();
 
             app.UseAuthorization();
@@ -69,12 +84,12 @@ namespace IS413_Amazon_A5_ZS
             {
                 //Allow people to navigate to different pages of books that are filtered based on categories
                 endpoints.MapControllerRoute("catpage",
-                    "{category}/{page:int}",
+                    "{category}/{pageNum:int}",
                     new { Controller = "Home", action = "Index" }
                     );
 
                 //Allow quick navigation to different pages by only entering the page number as a parameter in the URL
-                endpoints.MapControllerRoute("page",
+                endpoints.MapControllerRoute("pageNum",
                     "{page:int}",
                     new { Controller = "Home", action = "Index" }
                     );
@@ -88,10 +103,12 @@ namespace IS413_Amazon_A5_ZS
                 //Allow user to type in the desired page as P1 for page 1, P2 for page 2, etc.
                 endpoints.MapControllerRoute(
                     "pagination", 
-                    "/P{page}",
+                    "/P{pageNum}",
                     new { Controller = "Home", action = "Index" });
 
                 endpoints.MapDefaultControllerRoute();
+
+                endpoints.MapRazorPages();
             });
 
             //Makes sure that database is populated

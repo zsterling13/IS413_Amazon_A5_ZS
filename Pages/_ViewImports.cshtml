@@ -1,13 +1,15 @@
-﻿@using IS413_Amazon_A5_ZS
+﻿@namespace IS413_Amazon_A5_ZS.Pages
+@using Microsoft.AspNetCore.Mvc.RazorPages
 @using IS413_Amazon_A5_ZS.Models
-
-<!--Bring in infrastructure folder and its contents-->
 @using IS413_Amazon_A5_ZS.Infrastructure
+
+@*Bring in Tag helpers being used in the views folder*@
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@using IS413_Amazon_A5_ZS
 
 <!--Bring in the reference for the viewmodels folder-->
 @using IS413_Amazon_A5_ZS.Models.ViewModels
-
-@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 
 <!--Add Tag Helpers from project files-->
 @addTagHelper *, IS413_Amazon_A5_ZS

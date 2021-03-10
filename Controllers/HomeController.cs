@@ -27,7 +27,7 @@ namespace IS413_Amazon_A5_ZS.Controllers
         }
 
         //Return the index/home page that queries the appropriate number of books as well as allows filters
-        public IActionResult Index(string category, int page = 1)
+        public IActionResult Index(string category, int pageNum = 1)
         {
             return View(new BookListViewModel
                 //Query to get the correct book information for each page
@@ -35,13 +35,13 @@ namespace IS413_Amazon_A5_ZS.Controllers
                     Books = _repository.Books
                 .Where(p => category == null || p.Category == category)
                 .OrderBy(p => p.BookId)
-                .Skip((page - 1) * ItemsPerPage)
+                .Skip((pageNum - 1) * ItemsPerPage)
                 .Take(ItemsPerPage)
                 ,
                 //Modify certain attributes of the PagingInfo object in the BookListViewModel class
                 PagingInfo = new PagingInfo
                     {  
-                        CurrentPage = page,
+                        CurrentPage = pageNum,
                         ItemsPerPage = ItemsPerPage,
 
                         //If statement to determine the correct number of page options that is displayed under the table
